@@ -5,7 +5,7 @@
 #define ALUMNOS 23
 #define PROGRESOS 3
 
-float generarCalificaciones() {
+float generarCalificaciones() { 
     return (float)(rand() % 11);  // Genera un número entre 0 y 10
 }
 
@@ -31,10 +31,10 @@ int main() {
             calificaciones[i][j] = generarCalificaciones();
             promediosP[j] += calificaciones[i][j];
         }
-        promediosA[i] = calcularPromedio(calificaciones[i], PROGRESOS);
+        promediosA[i] = Promedio(calificaciones[i], PROGRESOS);
         if (promediosA[i] > mayorPromedio) {
-            mayorAlumno = promediosA[i];
-            mayorPromedio = i;
+            mayorPromedio = promediosA[i];
+            mayorAlumno = i;  
         }
     }
     
@@ -42,5 +42,14 @@ int main() {
         promediosP[j] = promediosP[j] / ALUMNOS;
     }
 
+    for (int i = 0; i < ALUMNOS; i++) {
+    printf("Promedio del Alumno %d: %f\n", i + 1, promediosA[i]);
+    }
+    for (int j = 0; j < PROGRESOS; j++) {
+        printf("Promedio del Progreso %d: %f\n", j + 1, promediosP[j]);
+    }
+    printf("Alumno con el mayor promedio: Alumno %d con un promedio de %f\n", mayorAlumno + 1, mayorPromedio);
+
 return 0;
+
 } 
