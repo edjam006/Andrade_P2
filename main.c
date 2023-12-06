@@ -14,7 +14,7 @@ float Promedio(float calificaciones[], int total) {
     for (int i = 0; i < total; i++) {
         suma += calificaciones[i];
     }
-    return suma / total;
+    return suma / total; 
 }
 
 int main() {
@@ -30,13 +30,17 @@ int main() {
         for (int j = 0; j < PROGRESOS; j++) {
             calificaciones[i][j] = generarCalificaciones();
             promediosP[j] += calificaciones[i][j];
-            promediosA[i] = calcularPromedio(calificaciones[i], PROGRESOS);
+        }
+        promediosA[i] = calcularPromedio(calificaciones[i], PROGRESOS);
         if (promediosA[i] > mayorPromedio) {
             mayorAlumno = promediosA[i];
             mayorPromedio = i;
         }
-        }
-        
     }
+    
+    for (int j = 0; j < PROGRESOS; j++) {
+        promediosP[j] = promediosP[j] / ALUMNOS;
+    }
+
 return 0;
 } 
